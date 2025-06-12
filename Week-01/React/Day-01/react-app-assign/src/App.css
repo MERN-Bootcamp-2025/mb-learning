@@ -1,0 +1,51 @@
+/* Basic reset and styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* App Container Styling */
+.app-container {
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #fefefe;
+}
+
+.app-header {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.profile-section,
+.skills-section,
+.quote-section {
+  margin: 2rem 0;
+}
+
+.skills-section ul {
+  padding-left: 20px;
+}
+
+.skills-section li {
+  margin-bottom: 8px;
+}
+
+.app-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}
