@@ -1,0 +1,94 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+:root {
+  --primary-color: #6200ea;
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+}
+
+body{
+  margin: 0;
+  font-family: monospace;
+  color: var(--text-color);
+  background: var(--primary-color);
+}
+
+.app-header{
+  background: var(--primary-color);
+  color: aliceblue;
+  padding: 1rem;
+  text-align: center;
+}
+
+.app-nav ul{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
+}
+
+.app-nav a{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.main-content{
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.content-area{
+  flex: 2;
+}
+
+aside{
+  flex: 1;
+  padding: 1rem;
+}
+
+.hero {
+  background: aliceblue;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.features {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: aliceblue;
+  padding: 1rem;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.sidebar {
+  background: aliceblue;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: aliceblue;
+}
+
+
