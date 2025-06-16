@@ -1,0 +1,127 @@
+html,body{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  /* min-width: 100vw; */
+  /* background-color: black;
+  color: white; */
+}
+.layout{
+  min-height: 100vh;
+  /* width: 100vw; */
+  /* color: white; */
+  display: flex;
+  flex-direction: column;
+  background-color: #555;
+}
+
+.main{
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: var(--background, #f5f5f5);
+}
+
+.header{
+  /* height: 20vh;
+  width: 100%;
+  font-size: 2rem;
+  background-color: grey; */
+
+  background-color: #007bff;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.footer{
+  /* width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 1rem; */
+  background-color: #f8f9fa;
+  color: #555;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+}
+
+.card{
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover{
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.prod-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.prod-info{
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.prod-price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.toggle-action{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+button{
+  background-color: transparent;
+  border: 1px solid whitesmoke;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.btn-active{
+  color: rgb(74, 178, 212);
+}
+
+.filterbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+select,input{
+  padding: 1rem;
+  font-size: 1rem;
+}
