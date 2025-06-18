@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/Montserrat-Regular.ttf') format('ttf');
+}
+
+html,body{
+    /* overflow-x: hidden; */
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* font-family: 'Montserrat'; */
+  background-color: bisque;
+  /* overflow: hidden; */
+}
+
+.main-app{
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 20px 50px; */
+  /* border: 1px solid ; */
+}
+
+.review-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50vh;
+  width: 50vh;
+  border: 1px solid darkgrey;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px gray;
+  margin-top: 5vh;
+  background-color: burlywood;
+}
+
+.review-form input, textarea{
+  height: 4vh;
+  width: 20vw;
+  padding: 10px 20px;
+  margin-bottom: 3vh;
+  border-radius: 1rem;
+  border: 1px solid gray;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.review-form button{
+  height: 5vh;
+  width: 10vw;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.review-form button:hover{
+  background-color: rgb(22, 87, 22);
+  color: antiquewhite;
+}
+
+.review-list{
+  max-width: 100vw;
+  display: flex;
+  gap: 30px;
+}
+
+/* .review-card{
+  position: relative;
+  min-width: 10vw; 
+  border: 1px solid gray;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 8px;
+  line-height: 3vh;
+} */
+
+.review-card{
+  position: relative;
+  width: 20vw;              /* Fixed width */
+  height: 30vh;             /* Fixed height */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  /* background-color: #fff; */
+  overflow: hidden;          /* Hide content that overflows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.review-card h3{
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.review-card h5{
+  font-size: 1.5rem;
+  margin-top: -40px;
+  font-weight: 400;
+}
+
+.date{
+  position: absolute;
+  top:0;
+  right: 0;
+  padding-right: 10px;
+}
