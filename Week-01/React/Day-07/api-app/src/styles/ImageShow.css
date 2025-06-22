@@ -1,0 +1,124 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    
+}
+
+.main {
+    background-color: black;
+}
+
+.gallery-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #0d0c0cd7;
+    /* solid when at top */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.gallery-nav .scrolled {
+    background-color: #0d0c0c66;
+    /* semi-transparent */
+    backdrop-filter: blur(10px);
+    /* blur only on scroll */
+}
+
+.gallery-nav h5 {
+    font-size: 2rem;
+    color: #efe8e8;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    color: #efe8e8;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #efe8e8;
+    color: #0d0c0c;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item p {
+    padding: 10px;
+    font-weight: 600;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5vh;
+    width: 30vw;
+    padding: 0 50px;
+    /* border: 1px solid white; */
+}
+
+.search-form input {
+    width: 45%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 2px solid white;
+    padding: 0 20px;
+    color: #efe8e8;
+    font-size: 1rem;
+}
+
+.search-form button {
+    height: 5vh;
+    width: 25%;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: #efe8e8;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.search-form button:hover {
+    background-color: #efe8e8;
+    color: black;
+    transition: 0.5s ease-in;
+    cursor: pointer;
+}
+
+.search-img{
+    height: 3vh;
+    width: 2vw;
+    background: white;
+    color: black;
+}

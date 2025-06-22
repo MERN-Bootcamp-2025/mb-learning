@@ -1,0 +1,91 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.main-div{
+    min-height: 100vh;
+    background: #000;
+    color: aliceblue;
+}
+
+.main-div nav{
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+nav h5{
+    font-size: 1.5rem;
+}
+
+nav img{
+    background-color: aliceblue;
+    height: 50px;
+    width: 50px;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.gallery-div{
+    /* border: 1px solid white; */
+    height: 70vh;
+    position: relative;
+}
+
+.gallery-div img{
+    position: absolute;
+    height: 86vh;
+    width: 30vw;
+    left: 35%;
+}
+
+.red-box{
+    position: absolute;
+    top: -15%;
+    left: 40%;
+    height: 90vh;
+    width: 20vw;
+    border-radius: 200px;
+    border: 3px solid red;
+}
+
+.gallery-div h1{
+    position: absolute;
+    font-size: 9rem;
+    top: 30%;
+    left: 25%;
+}
+
+.gallery-div button{
+    position: absolute;
+    height: 7vh;
+    width: 8vw;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50px;
+    color: whitesmoke;
+    bottom: 18%;
+    left: 46%;
+}
+
+.gallery-div button:hover{
+    background-color: aliceblue;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.footer-text{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    font-size: 1rem;
+    color: rgba(240, 248, 255, 0.585);
+}
