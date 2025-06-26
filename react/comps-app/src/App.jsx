@@ -7,7 +7,7 @@ const App = () => {
       <Button type="primary" onClick={()=>console.log("clicked!")}>Click</Button>
       <Button type="danger">Logout</Button>
       <Button type='warning' disabled>Warning</Button>
-      <Button type='success'success outlined>Done</Button>
+      {/* <Button type='success'success outlined>Done</Button> */}
         
 
     </div>
