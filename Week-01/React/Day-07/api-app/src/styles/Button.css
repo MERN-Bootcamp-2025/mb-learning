@@ -1,0 +1,77 @@
+.main-button {
+    height: 7vh;
+    width: 8vw;
+    border-radius: 50px;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+
+.button-outline {
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    color: aliceblue;
+}
+
+.button-feild {
+    background-color: aliceblue;
+    color: black;
+    border: 1px solid black;
+}
+
+.button-text {
+    background-color: none;
+    color: aliceblue;
+    border: none;
+}
+
+.button-primary {
+    background-color: rgb(32, 174, 214);
+    color: aliceblue;
+    border: none;
+}
+
+.button-secondary {
+    background-color: green;
+    color: aliceblue;
+    border: none;
+}
+
+.button-danger {
+    background-color: red;
+    color: aliceblue;
+    border: none;
+}
+
+.button-view {
+    position: absolute;
+    bottom: 18%;
+    left: 46%;
+    height: 7vh;
+    width: 8vw;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    color: aliceblue;
+}
+
+.button-view:hover{
+    background-color: aliceblue;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.button-search {
+    border-radius: 50px;
+    border: 2px solid white;
+    background: transparent;
+    color: #efe8e8;
+    font-size: 1rem;
+}
+
+.button-search:hover{
+    background-color: #efe8e8;
+    color: black;
+    transition: 0.5s ease-in;
+    cursor: pointer;
+}

@@ -31,6 +31,13 @@ nav img{
     border-radius: 50%;
 }
 
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+}
+
 .gallery-div{
     /* border: 1px solid white; */
     height: 70vh;
@@ -61,7 +68,7 @@ nav img{
     left: 25%;
 }
 
-.gallery-div button{
+/* .gallery-div button{
     position: absolute;
     height: 7vh;
     width: 8vw;
@@ -79,7 +86,7 @@ nav img{
     color: #000;
     cursor: pointer;
     transition: 0.5s ease-in;
-}
+} */
 
 .footer-text{
     position: fixed;

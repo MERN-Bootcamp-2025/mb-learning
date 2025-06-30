@@ -1,0 +1,26 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+.nav{
+    background-color: brown;
+    height: 10vh;
+    color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+a{
+    text-decoration: none;
+    color: beige;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    
+}
