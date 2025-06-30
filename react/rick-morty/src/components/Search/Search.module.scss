@@ -1,0 +1,15 @@
+.input{
+    width: 40%;
+    border-radius: 8px;
+    border: 2px solid rgba(13, 109, 252, 0.733);
+    padding: 0 15px;
+    box-shadow: 1px 3px 9px rgba($color: #000000, $alpha: 0.25);
+    &:focus{
+        outline: none;
+    }
+}
+.btn{
+    box-shadow: 1px 3px 9px rgba($color: #000000, $alpha: 0.25);
+
+
+}
