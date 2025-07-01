@@ -1,0 +1,46 @@
+.main{
+    margin: 0 ;
+    padding: 10vh;
+    box-sizing: border-box;
+    /* background-color: black; */
+    /* height: 100vh; */
+    font-family: 'Montserrat';
+}
+form{
+    height: 40vh;
+    width: 30vw;
+    /* background-color: rgb(88, 87, 87); */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid rgba(85, 82, 82, 0); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+}
+h1{
+    margin-bottom: 8vh;
+    font-size: 3rem;
+}
+input{
+    padding: 20px 30px;
+    border: 1px solid black;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+input:focus{
+    border: 1px solid #3aa0f3;
+
+}
+span{
+    color: #3aa0f3;
+}
+button{
+    padding: 20px 35px;
+    background-color: #3aa0f3;
+    border: none;
+    color: aliceblue;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
