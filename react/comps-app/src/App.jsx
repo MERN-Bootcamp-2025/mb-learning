@@ -1,5 +1,6 @@
 // import React, { useState } from 'react'
 import Dropdown from './components/Dropdown'
+import CounterPage from './pages/CounterPage'
 import ModalPage from './pages/ModalPage'
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
   //   {label: "Peach", value:"peach"},
   // ]
   // return <Dropdown options={options} selection={selection} onSelect={handleSelect}/>
-  return <ModalPage/>
+  // return <ModalPage/>
+  return <CounterPage initialCount={10}/>
 }
 
 export default App
