@@ -1,5 +1,17 @@
-const {DataTypes} = require('sequelize');
-const sequelize = require('../util/database');
+// const {DataTypes} = require('sequelize');
+// const sequelize = require('../util/database');
+
+const getDb = require('../util/database').getDb;
+class Product{
+    constructor(title){
+        this.title = title;
+    }
+    save(){
+        // const db = getDb();
+        // db.collection();
+
+    }
+}
 
 const Product = sequelize.define('Product',{
     id:{
@@ -14,4 +26,4 @@ const Product = sequelize.define('Product',{
     }
 });
 
-module.exports = Product;
+// module.exports = Product;
