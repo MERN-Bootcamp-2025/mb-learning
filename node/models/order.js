@@ -1,0 +1,15 @@
+const {DataTypes} = require('sequelize')
+const sequelize = require('../util/database')
+
+const Order = sequelize.define('Order',{
+    id:{
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    product:{
+        type: DataTypes.JSON
+    }
+});
+
+module.exports = Order;
