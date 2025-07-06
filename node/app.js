@@ -4,6 +4,8 @@ const { json } = require('sequelize');
 const config = require('./config');
 const logger = require('./middleware/logger');
 const productRoute = require('./routes/productRoute');
+const mealRoute = require('./routes/mealRoute');
+const mealsProductRoute = require('./routes/mealsProductRoute');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -18,6 +20,8 @@ app.use(logger);
 
 //Product routes
 app.use('/products',productRoute);
+app.use('/meals',mealRoute);
+app.use('/mealsProduct',mealsProductRoute);
 
 //Error handler
 app.use(errorHandler);
