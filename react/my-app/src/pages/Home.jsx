@@ -30,6 +30,8 @@ const Home = () => {
     const matchSearch = item.name.toLowerCase().includes(search.toLowerCase());
     return matchCategory && matchType && matchSearch;
   });
+
+  console.log('Products:',products);
   return (
     <div className="container-fluid">
       <div className="row mt-3">
@@ -46,7 +48,7 @@ const Home = () => {
         <div className="col-md-9">
           <input
             type="text"
-            className="form-control mb-3"
+            className="form-control border-primary mb-3"
             placeholder="Search Items"
             onChange={(e) => setSearch(e.target.value)}
           />

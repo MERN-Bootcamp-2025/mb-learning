@@ -5,6 +5,7 @@ const ProductCard = ({ product, onClick }) => {
 //   const [quantity, setQuantity] = useState(0);
 
   const {addToCart, increment, decrement, cartItems} = useCart();
+//   const type = 'product';
 
   const itemInCart = cartItems.find((i)=> i.id === product.id);
   const quantity = itemInCart?.quantity || 0 ;

@@ -26,6 +26,8 @@ const {category, isVeg} = useFilter();
     const matchSearch = item.name.toLowerCase().includes(search.toLowerCase());
     return matchCategory && matchType && matchSearch;
   });
+
+  console.log('Meals:',meals);
   return (
     <div className="container-fluid">
       <div className="row mt-3">

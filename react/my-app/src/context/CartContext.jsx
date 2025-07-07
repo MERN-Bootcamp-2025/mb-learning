@@ -1,9 +1,27 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  //Load cart from localStorage on first render
+  //   useEffect(()=>{
+  //     const savedCart = localStorage.getItem('cart');
+  //     if(savedCart){
+  //         setCartItems(JSON.parse(savedCart));
+  //     }
+  //   },[])
+  //this is running before useEffect() loadds the cart 
+  // therfore we will initialize the localstorage directly at the time of state creation
+
+  //save cart to localStorage on every update
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product) => {
     setCartItems((prev) => {
@@ -15,7 +33,7 @@ export const CartProvider = ({ children }) => {
             : item
         );
       } else {
-        return [...prev, { ...product, quantity: 1 }];
+        return [...prev, { ...product, quantity: 1}];
       }
     });
   };
@@ -48,7 +66,7 @@ export const CartProvider = ({ children }) => {
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  return(
+  return (
     <CartContext.Provider
       value={{
         cartItems,
@@ -60,9 +78,9 @@ export const CartProvider = ({ children }) => {
         totalItems,
       }}
     >
-        {children}
+      {children}
     </CartContext.Provider>
-  )
+  );
 };
 
-export const useCart = ()=> useContext(CartContext);
+export const useCart = () => useContext(CartContext);
