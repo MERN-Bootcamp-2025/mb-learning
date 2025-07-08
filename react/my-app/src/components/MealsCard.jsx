@@ -8,7 +8,7 @@ const MealsCard = ({ meal, onClick }) => {
 const { addToCart, increment, decrement, cartItems } = useCart();
 // const type = 'meal'
 
-const itemInCart = cartItems.find((i) => i.id === meal.id);
+const itemInCart = cartItems.find((i) => i.id === meal.id && i.type === 'meal');
 const quantity = itemInCart?.quantity || 0;
 
   return (
@@ -17,6 +17,13 @@ const quantity = itemInCart?.quantity || 0;
       onClick={onClick}
       style={{ cursor: "pointer" }}
     >
+      <img
+        src={meal.isVeg ? "/public/veg.png" : "/public/nonVeg.png"}
+        alt={meal.isVeg ? "Veg" : "Non-Veg"}
+        width={meal.isVeg ? "22" : "42" }
+        height={meal.isVeg ? "22" : "42" }
+        style={{margin: meal.isVeg ? "10px" : 0}}
+      />
       <img
         src={meal.img}
         alt={meal.name}
@@ -58,7 +65,7 @@ const quantity = itemInCart?.quantity || 0;
           {quantity === 0 ? (
             <button className="btn btn-success btn-sm" onClick={(e)=>{
                 e.stopPropagation();
-                addToCart(meal)
+                addToCart(meal,'meal')
             }}>
                 Add to Cart
             </button>

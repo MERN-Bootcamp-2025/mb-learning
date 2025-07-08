@@ -4,21 +4,24 @@ import MealsCard from "../components/MealsCard";
 import ProductModal from "../components/ProductModal";
 import FilterAccordian from "../components/FilterAccordian";
 import { useFilter } from "../context/FilterContext";
+import { useCart } from "../context/CartContext";
 
 const Meals = () => {
   const [meals, setMeals] = useState([]);
   const [selectedMeal, setSelectedMeal] = useState(null);
-//   const [category, setCategory] = useState('');
-//   const [isVeg, setIsVeg] = useState('');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-const {category, isVeg} = useFilter();
+  const { category, isVeg } = useFilter();
 
   useEffect(() => {
     fetchMeals()
       .then((res) => setMeals(res.data))
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error("Error fetching meals:", err);
+        setMeals([]);
+      });
   }, []);
+
 
   const filtered = meals.filter((item) => {
     const matchCategory = category ? item.category === category : true;

@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product, onClick }) => {
-//   const [quantity, setQuantity] = useState(0);
+  //   const [quantity, setQuantity] = useState(0);
 
-  const {addToCart, increment, decrement, cartItems} = useCart();
-//   const type = 'product';
+  const { addToCart, increment, decrement, cartItems } = useCart();
+  //   const type = 'product';
 
-  const itemInCart = cartItems.find((i)=> i.id === product.id);
-  const quantity = itemInCart?.quantity || 0 ;
+  const itemInCart = cartItems.find(
+    (i) => i.id === product.id && i.type === "product"
+  );
+  const quantity = itemInCart?.quantity || 0;
 
   return (
     <div
@@ -17,11 +19,19 @@ const ProductCard = ({ product, onClick }) => {
       style={{ cursor: "pointer" }}
     >
       <img
+        src={product.isVeg ? "/public/veg.png" : "/public/nonVeg.png"}
+        alt={product.isVeg ? "Veg" : "Non-Veg"}
+        width={product.isVeg ? "22" : "42" }
+        height={product.isVeg ? "22" : "42" }
+        style={{margin: product.isVeg ? "10px" : 0}}
+      />
+      <img
         src={product.img}
         className="card-img-top"
         alt={product.name}
         style={{ height: "200px", objectFit: "cover" }}
       />
+      
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
         <p>{product.desc.slice(0, 10)}...</p>
@@ -56,27 +66,36 @@ const ProductCard = ({ product, onClick }) => {
           </button> */}
 
           {quantity === 0 ? (
-            <button className="btn btn-success btn-sm" onClick={(e)=>{
+            <button
+              className="btn btn-success btn-sm"
+              onClick={(e) => {
                 e.stopPropagation();
-                addToCart(product)
-            }}>
-                Add to Cart
+                addToCart(product, "product");
+              }}
+            >
+              Add to Cart
             </button>
-          ):(
+          ) : (
             <div className="d-flex align-items-center">
-                <button className="btn btn-outline-dark btn-sm" onClick={(e)=>{
-                    e.stopPropagation();
-                    decrement(product.id);
-                }}>
-                    -
-                </button>
-                <span className="mx-2">{quantity}</span>
-                <button className="btn btn-outline-dark btn-sm" onClick={(e)=>{
-                    e.stopPropagation();
-                    increment(product.id);
-                }}>
-                    +
-                </button>
+              <button
+                className="btn btn-outline-dark btn-sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  decrement(product.id);
+                }}
+              >
+                -
+              </button>
+              <span className="mx-2">{quantity}</span>
+              <button
+                className="btn btn-outline-dark btn-sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  increment(product.id);
+                }}
+              >
+                +
+              </button>
             </div>
           )}
         </div>

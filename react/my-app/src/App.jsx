@@ -8,6 +8,7 @@ import Meals from "./pages/Meals";
 import { FilterProvider } from "./context/FilterContext";
 import { CartProvider } from "./context/CartContext";
 
+
 const App = () => {
   return (
     <Router>

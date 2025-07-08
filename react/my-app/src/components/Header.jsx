@@ -17,7 +17,7 @@ const Header = () => {
         <div className="d-flex">
           <Link
             to="/products"
-            className={`nav-link text-white ${
+            className={`nav-link text-white ms-3${
               location.pathname === "/products" ? "fw-bold" : ""
             }`}
           >
@@ -45,7 +45,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <CartSidebar isOpen={showCart} onClose={()=>setShowCart(false)}/>
+      <CartSidebar isOpen={showCart} onClose={() => setShowCart(false)} />
     </>
   );
 };
