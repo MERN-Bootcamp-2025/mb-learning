@@ -27,17 +27,12 @@ export const CartProvider = ({ children }) => {
   // therfore we will initialize the localstorage directly at the time of state creation
 
   //Fetch meals globally
-//   useEffect(() => {
-//   fetchMeals()
-//     .then((res) => {
-//       if (!res.ok) {
-//         throw new Error("Failed to fetch meals");
-//       }
-//       return res.json(); // only works if response is JSON
-//     })
-//     .then((data) => setMeals(data))
-//     .catch((err) => console.error("Failed to load meals", err));
-// }, []);
+  useEffect(() => {
+    fetchMeals()
+      .then((res) => setMeals(res.data))
+
+      .catch((err) => console.error("Failed to load meals", err));
+  }, []);
 
   //save cart to localStorage on every update
   useEffect(() => {
@@ -99,14 +94,14 @@ export const CartProvider = ({ children }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const optimizeCart = () => {
-    console.log("Start Optimizing");
+    // console.log("Start Optimizing");
     if (!meals || meals.length === 0) {
       console.log("no meals available for optimization");
       return;
     }
 
     const suggestions = getMealSuggestions(cartItems, meals);
-    console.log("Suggestions", suggestions);
+    // console.log("Suggestions", suggestions);
 
     if (suggestions.length === 0) {
       alert("No Optimized Combo Found!");
@@ -114,10 +109,10 @@ export const CartProvider = ({ children }) => {
     }
 
     const best = suggestions.reduce((a, b) => (a.savings > b.savings ? a : b));
-    console.log("best Suggestion", best);
+    // console.log("best Suggestion", best);
 
-    console.log("Cart Items:", cartItems);
-    console.log("Meals", meals);
+    // console.log("Cart Items:", cartItems);
+    // console.log("Meals", meals);
 
     replaceItemsWithMeal(best);
     setShowOptimized(true); //showOptimized values only after button clicks

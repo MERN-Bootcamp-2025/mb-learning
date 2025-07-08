@@ -86,9 +86,9 @@ const CartSidebar = ({ isOpen, onClose }) => {
 
       {showOptimized ? (
         <div className="mt-4">
-          <p>
+          {/* <p>
             <strong>Original Bill: </strong>Rs.{originalTotal}
-          </p>
+          </p> */}
           <p>
             <strong>Optimized Bill: </strong>Rs.{optimizedTotal}
           </p>

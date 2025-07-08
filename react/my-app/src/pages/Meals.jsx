@@ -7,20 +7,22 @@ import { useFilter } from "../context/FilterContext";
 import { useCart } from "../context/CartContext";
 
 const Meals = () => {
-  const [meals, setMeals] = useState([]);
+  // const [meals, setMeals] = useState([]);
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [search, setSearch] = useState("");
 
+  const {meals} = useCart();
+
   const { category, isVeg } = useFilter();
 
-  useEffect(() => {
-    fetchMeals()
-      .then((res) => setMeals(res.data))
-      .catch((err) => {
-        console.error("Error fetching meals:", err);
-        setMeals([]);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetchMeals()
+  //     .then((res) => setMeals(res.data))
+  //     .catch((err) => {
+  //       console.error("Error fetching meals:", err);
+  //       setMeals([]);
+  //     });
+  // }, []);
 
 
   const filtered = meals.filter((item) => {

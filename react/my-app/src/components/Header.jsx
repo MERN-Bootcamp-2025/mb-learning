@@ -13,7 +13,11 @@ const Header = () => {
   return (
     <>
       <div className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
-        <span className="navbar-brand mb-0 h1">Burger Shop</span>
+        <span className="navbar-brand mb-0 h1">
+          <img src="../public/burger.png" alt="" />
+          Burger Shop
+          
+         </span>
         <div className="d-flex">
           <Link
             to="/products"
