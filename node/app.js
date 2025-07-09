@@ -1,16 +1,19 @@
-const express = require('express');
-const {sequelize} = require('./models');
-const { json } = require('sequelize');
-const config = require('./config');
-const logger = require('./middleware/logger');
-const productRoute = require('./routes/productRoute');
-const mealRoute = require('./routes/mealRoute');
-const mealsProductRoute = require('./routes/mealsProductRoute');
-const errorHandler = require('./middleware/errorHandler');
+const express = require("express");
+const { sequelize } = require("./models");
+const { json } = require("sequelize");
+const config = require("./config");
+const logger = require("./middleware/logger");
+const productRoute = require("./routes/productRoute");
+const mealRoute = require("./routes/mealRoute");
+const mealsProductRoute = require("./routes/mealsProductRoute");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
 const PORT = 3000;
+
+const cors = require("cors");
+app.use(cors());
 
 //built-in middleware
 app.use(express.json());
@@ -19,16 +22,20 @@ app.use(express.json());
 app.use(logger);
 
 //Product routes
-app.use('/products',productRoute);
-app.use('/meals',mealRoute);
-app.use('/mealsProduct',mealsProductRoute);
+app.use("/products", productRoute);
+app.use("/meals", mealRoute);
+app.use("/mealsProduct", mealsProductRoute);
 
 //Error handler
 app.use(errorHandler);
 
-sequelize.sync().then(()=>{
-    console.log('Database Connected!');
-    app.listen(PORT,()=>{
-        console.log(`Server is running on port: ${PORT}`)
-    })
-}).catch(err=>console.error(`Error occured, ${err}`));
+// sequelize.sync({force: true}).then(()=>{
+//     console.log('Database Connected!');
+//     app.listen(PORT,()=>{
+//         console.log(`Server is running on port: ${PORT}`)
+//     })
+// }).catch(err=>console.error(`Error occured, ${err}`));
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
+});

@@ -5,16 +5,17 @@ const Meal = sequelize.define('Meal',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true
         // defaultValue: DataTypes.UUIDV4
     },
     name: DataTypes.STRING,
-    desc: DataTypes.STRING,
     price: DataTypes.DOUBLE,
     isVeg: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true
     },
+    desc: DataTypes.STRING,
     img: DataTypes.STRING
 });
 

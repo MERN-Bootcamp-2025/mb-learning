@@ -5,21 +5,22 @@ const Product = sequelize.define('Product',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey:true,
+        autoIncrement: true
         // defaultValue: DataTypes.UUIDV4
     },
     name: DataTypes.STRING,
     desc: DataTypes.STRING,
-    price: DataTypes.DOUBLE,
     isVeg: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true
     },
     category: {
-        type: DataTypes.ENUM('Burgers','Coke','Fries'),
+        type: DataTypes.ENUM('burgers','drinks','fries'),
         allowNull: false
     },
-    img: DataTypes.STRING
+    img: DataTypes.TEXT,
+    price: DataTypes.DOUBLE,
 });
 
 module.exports = Product;
