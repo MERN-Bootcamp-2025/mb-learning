@@ -17,16 +17,17 @@
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 
-let _db;
-const mongoConnect = (callback) => {
-  MongoClient.connect(
-    "mongodb+srv://arzoojain:C62XkeO01VxbAfDl@cluster1.q2vgonx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
-  )
+const uri =
+  "mongodb+srv://arzoojain:C62XkeO01VxbAfDl@cluster1.q2vgonx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1";
+const client = new MongoClient(uri);
+let _db; //variable to store the connected database object
+
+const mongoConnect = () => {
+  return client
+    .connect() //attemptes to connect to MongoDB
     .then((client) => {
-      console.log("Connected!");
-      // callback(client)
-      _db = client.db();
-      callback();
+      _db = client.db("product-app");
+      console.log("Connected to MongoDB!");
     })
     .catch((err) => {
       console.log(err);
@@ -34,12 +35,12 @@ const mongoConnect = (callback) => {
     });
 };
 
-const getDb = ()=>{
-    if(_db){
-        return _db;
-    }
-    throw 'No database found!';
-}
+const getDb = () => {
+  // this fucntion allows other parts of your app to get the connected database object once it's initialized
+  if (_db) {
+    return _db;
+  }
+  throw "No database found!";
+};
 
-exports.mongoConnect = mongoConnect;
-exports.getDb = getDb;
+module.exports= {mongoConnect,getDb};
