@@ -1,36 +1,44 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+app.use(cors());
 const PORT = 3000;
 
 const mongoose = require("mongoose");
-const User = require("./users");
+// const User = require("./users");
 
-mongoose.connect(
-  "mongodb+srv://arzoojain:C62XkeO01VxbAfDl@cluster1.q2vgonx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
-);
+const uploadRoutes = require("./routes/uploadRoute");
+const bookRoutes = require('./routes/bookRoutes');
 
-const db = mongoose.connection;
-db.once("open", async () => {
-  if ((await User.countDocuments().exec()) > 0) return;
+mongoose
+  .connect(
+    "mongodb+srv://arzoojain:C62XkeO01VxbAfDl@cluster1.q2vgonx.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster1"
+  )
+  .then(() => console.log("Connected with db successfully"))
+  .catch((err) => console.error("Failed to connect to db", err));
 
-  Promise.all([
-    User.create({ name: "Arzoo" }),
-    User.create({ name: "Aastha" }),
-    User.create({ name: "Mansi" }),
-    User.create({ name: "Jidnya" }),
-    User.create({ name: "Vineet" }),
-    User.create({ name: "Manas" }),
-    User.create({ name: "Shreyas" }),
-    User.create({ name: "Devansh" }),
-    User.create({ name: "Madhura" }),
-    User.create({ name: "Alice" }),
-    User.create({ name: "Verity" }),
-    User.create({ name: "Amir" }),
-    User.create({ name: "Hassan" }),
-  ]).then(() => {
-    console.log("Added Users");
-  });
-});
+// const db = mongoose.connection;
+// db.once("open", async () => {
+//   if ((await User.countDocuments().exec()) > 0) return;
+
+//   Promise.all([
+//     User.create({ name: "Arzoo" }),
+//     User.create({ name: "Aastha" }),
+//     User.create({ name: "Mansi" }),
+//     User.create({ name: "Jidnya" }),
+//     User.create({ name: "Vineet" }),
+//     User.create({ name: "Manas" }),
+//     User.create({ name: "Shreyas" }),
+//     User.create({ name: "Devansh" }),
+//     User.create({ name: "Madhura" }),
+//     User.create({ name: "Alice" }),
+//     User.create({ name: "Verity" }),
+//     User.create({ name: "Amir" }),
+//     User.create({ name: "Hassan" }),
+//   ]).then(() => {
+//     console.log("Added Users");
+//   });
+// });
 
 // const users = [
 //   {
@@ -142,47 +150,50 @@ db.once("open", async () => {
 //   },
 // ];
 
-const paginatedResults = (model) => {
-  return async (req, res, next) => {
-    const page = parseInt(req.query.page);
-    const limit = parseInt(req.query.limit);
+// const paginatedResults = (model) => {
+//   return async (req, res, next) => {
+//     const page = parseInt(req.query.page);
+//     const limit = parseInt(req.query.limit);
 
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
+//     const startIndex = (page - 1) * limit;
+//     const endIndex = page * limit;
 
-    const results = {};
+//     const results = {};
 
-    if (endIndex < await model.countDocuments().exec()) {
-      results.next = {
-        page: page + 1,
-        limit: limit,
-      };
-    }
+//     if (endIndex < (await model.countDocuments().exec())) {
+//       results.next = {
+//         page: page + 1,
+//         limit: limit,
+//       };
+//     }
 
-    if (startIndex > 0) {
-      results.prev = {
-        page: page - 1,
-        limit: limit,
-      };
-    }
+//     if (startIndex > 0) {
+//       results.prev = {
+//         page: page - 1,
+//         limit: limit,
+//       };
+//     }
 
-    try {
-      results.results = await model.find().limit(limit).skip(startIndex).exec();
-      res.paginatedResults = results;
-      next();
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  };
-};
+//     try {
+//       results.results = await model.find().limit(limit).skip(startIndex).exec();
+//       res.paginatedResults = results;
+//       next();
+//     } catch (err) {
+//       res.status(500).json({ message: err.message });
+//     }
+//   };
+// };
 
-app.get("/users", paginatedResults(User), (req, res, next) => {
-  res.json(res.paginatedResults);
-});
+// app.get("/users", paginatedResults(User), (req, res, next) => {
+//   res.json(res.paginatedResults);
+// });
 
 // app.get("/posts",paginatedResults(posts),(req,res,next)=>{
 //     res.json(res.paginatedResults);
 // })
+
+app.use("/api", uploadRoutes);
+app.use("/api",bookRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
